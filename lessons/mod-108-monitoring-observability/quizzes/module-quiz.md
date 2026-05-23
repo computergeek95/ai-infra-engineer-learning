@@ -1,313 +1,406 @@
-# Module 08: Monitoring and Observability - Quiz
+# Module 08: Monitoring & Observability - Quiz
 
-**Time Limit:** 30 minutes
-**Passing Score:** 80% (20/25 questions)
-**Coverage:** Monitoring, logging, observability
-
----
-
-## Section 1: Observability Fundamentals (5 questions)
-
-### Q1. What are the three pillars of observability?
-
-a) CPU, Memory, Disk
-b) Metrics, Logs, Traces
-c) Code, Data, Models
-d) Dev, Test, Prod
-
-**Answer:** B
+## Instructions
+- This quiz covers all lessons in Module 08
+- 25 multiple choice questions + 3 practical scenarios
+- Passing score: 80% (20/25 correct)
+- Estimated time: 45 minutes
 
 ---
 
-### Q2. What is the difference between monitoring and observability?
+## Section 1: Fundamentals (Questions 1-5)
 
-a) No difference
-b) Monitoring tracks known issues, observability explores unknown
-c) Observability is simpler
-d) Monitoring is deprecated
+### Question 1
+What are the three pillars of observability?
 
-**Answer:** B
+A) Monitoring, Logging, Tracing
+B) Metrics, Logs, Traces
+C) Alerts, Dashboards, Reports
+D) CPU, Memory, Disk
 
----
+**Answer: B**
 
-### Q3. What are metrics?
+### Question 2
+Which metric type in Prometheus can only increase over time?
 
-a) Size measurements
-b) Numeric measurements over time
-c) Log files
-d) Code quality scores
+A) Gauge
+B) Histogram
+C) Counter
+D) Summary
 
-**Answer:** B
+**Answer: C**
 
----
+### Question 3
+What is the primary difference between monitoring and observability?
 
-### Q4. What are logs?
+A) Monitoring is newer than observability
+B) Monitoring answers "what is broken", observability answers "why it's broken"
+C) Monitoring is only for metrics, observability includes logs
+D) There is no difference
 
-a) Wood records
-b) Text records of discrete events
-c) Metrics
-d) Traces
+**Answer: B**
 
-**Answer:** B
+### Question 4
+In the context of ML systems, what does "data drift" refer to?
 
----
+A) Gradual decrease in model accuracy over time
+B) Changes in input data distribution compared to training data
+C) Network latency variations
+D) Storage capacity reduction
 
-### Q5. What are distributed traces?
+**Answer: B**
 
-a) Tracking code
-b) Request path through distributed system
-c) Log aggregation
-d) Metric collection
+### Question 5
+Which of the following is NOT one of the "Four Golden Signals"?
 
-**Answer:** B
+A) Latency
+B) Traffic
+C) Security
+D) Saturation
 
----
-
-## Section 2: Prometheus and Metrics (6 questions)
-
-### Q6. What is Prometheus?
-
-a) Greek mythology
-b) Open-source monitoring and alerting system
-c) Cloud provider
-d) Database
-
-**Answer:** B
+**Answer: C**
 
 ---
 
-### Q7. What query language does Prometheus use?
+## Section 2: Prometheus & PromQL (Questions 6-10)
 
-a) SQL
-b) PromQL
-c) Python
-d) JavaScript
+### Question 6
+What does this PromQL query calculate?
+```promql
+rate(http_requests_total[5m])
+```
 
-**Answer:** B
+A) Total requests in last 5 minutes
+B) Average requests per second over last 5 minutes
+C) Current request rate
+D) Number of requests per minute
 
----
+**Answer: B**
 
-### Q8. What is a time series in Prometheus?
+### Question 7
+What is the purpose of a recording rule in Prometheus?
 
-a) TV series
-b) Stream of timestamped values for a metric
-c) Database table
-d) Log file
+A) Record all metrics to a file
+B) Precompute expensive queries and store results as new time series
+C) Record alert history
+D) Create backup copies of metrics
 
-**Answer:** B
+**Answer: B**
 
----
+### Question 8
+What does `for: 5m` mean in a Prometheus alert rule?
 
-### Q9. What is the purpose of labels in Prometheus metrics?
+A) Alert fires every 5 minutes
+B) Alert is evaluated every 5 minutes
+C) Alert only fires if condition is true for 5 consecutive minutes
+D) Alert expires after 5 minutes
 
-a) Pretty printing
-b) Add dimensions to metrics for filtering/aggregation
-c) Color coding
-d) No purpose
+**Answer: C**
 
-**Answer:** B
+### Question 9
+Which PromQL function should you use to calculate the 95th percentile latency from a histogram?
 
----
+A) avg_over_time()
+B) histogram_quantile()
+C) rate()
+D) percentile_95()
 
-### Q10. How does Prometheus collect metrics?
+**Answer: B**
 
-a) Push model only
-b) Pull model (scraping) primarily
-c) Email
-d) Manual upload
+### Question 10
+What is the main advantage of Prometheus's pull-based architecture?
 
-**Answer:** B
+A) Lower network overhead
+B) Easier to detect when targets are down
+C) Faster data collection
+D) Simpler client configuration
 
----
-
-### Q11. What are the four metric types in Prometheus?
-
-a) Small, Medium, Large, XL
-b) Counter, Gauge, Histogram, Summary
-c) Logs, Traces, Metrics, Events
-d) CPU, Memory, Disk, Network
-
-**Answer:** B
-
----
-
-## Section 3: Logging (5 questions)
-
-### Q12. What is structured logging?
-
-a) Organizing log files
-b) Logs in parseable format (JSON, key-value)
-c) Pretty formatting
-d) Log compression
-
-**Answer:** B
+**Answer: B**
 
 ---
 
-### Q13. Which tool is commonly used for log aggregation?
+## Section 3: Grafana & Visualization (Questions 11-14)
 
-a) Excel
-b) ELK Stack (Elasticsearch, Logstash, Kibana)
-c) Notepad
-d) PowerPoint
+### Question 11
+What is the purpose of variables in Grafana dashboards?
 
-**Answer:** B
+A) Store temporary query results
+B) Create dynamic, reusable dashboards with filters
+C) Define alert thresholds
+D) Configure data source connections
 
----
+**Answer: B**
 
-### Q14. What are log levels used for?
+### Question 12
+Which Grafana panel type is best for showing a single current value with a threshold indicator?
 
-a) Building levels
-b) Categorize log severity (DEBUG, INFO, WARN, ERROR)
-c) Log compression levels
-d) User levels
+A) Time series
+B) Table
+C) Gauge
+D) Heatmap
 
-**Answer:** B
+**Answer: C**
 
----
+### Question 13
+In Grafana, what does a transformation do?
 
-### Q15. Why is centralized logging important?
+A) Converts between data source types
+B) Modifies query results before visualization
+C) Changes dashboard theme
+D) Translates text to different languages
 
-a) Not important
-b) Aggregate logs from distributed systems in one place
-c) Save disk space
-d) Make logs colorful
+**Answer: B**
 
-**Answer:** B
+### Question 14
+What is the purpose of provisioning in Grafana?
 
----
+A) Allocate more memory to Grafana
+B) Automatically configure data sources and dashboards via files
+C) Create user accounts
+D) Schedule dashboard refreshes
 
-### Q16. What should you NOT log in production?
-
-a) Errors
-b) Passwords, API keys, PII
-c) Request IDs
-d) Timestamps
-
-**Answer:** B
-
----
-
-## Section 4: Alerting (4 questions)
-
-### Q17. What is an alerting rule?
-
-a) Company policy
-b) Condition that triggers notification
-c) Log format
-d) Metric name
-
-**Answer:** B
+**Answer: B**
 
 ---
 
-### Q18. What is alert fatigue?
+## Section 4: Logging (Questions 15-17)
 
-a) Tired employees
-b) Too many alerts causing desensitization
-c) Slow alerts
-d) Alert failures
+### Question 15
+What is the main advantage of structured logging over unstructured logging?
 
-**Answer:** B
+A) Easier for humans to read
+B) Takes less disk space
+C) Machine-parseable and queryable
+D) Faster to write
 
----
+**Answer: C**
 
-### Q19. What is a good practice for alerts?
+### Question 16
+In the ELK stack, what component is responsible for parsing and transforming log data?
 
-a) Alert on everything
-b) Alert on actionable issues, not symptoms
-c) Never alert
-d) Alert only once per year
+A) Elasticsearch
+B) Logstash
+C) Kibana
+D) Filebeat
 
-**Answer:** B
+**Answer: B**
 
----
+### Question 17
+What is the primary difference between Loki and Elasticsearch?
 
-### Q20. What is the purpose of alert severity levels?
+A) Loki is slower
+B) Loki indexes only labels, not full text
+C) Loki doesn't support queries
+D) Loki requires more storage
 
-a) No purpose
-b) Prioritize responses based on impact
-c) Color coding
-d) Log organization
-
-**Answer:** B
-
----
-
-## Section 5: ML-Specific Monitoring (5 questions)
-
-### Q21. What model metrics should you monitor in production?
-
-a) Nothing
-b) Accuracy, latency, throughput, error rate
-c) Only accuracy
-d) Only latency
-
-**Answer:** B
+**Answer: B**
 
 ---
 
-### Q22. How can you detect model drift?
+## Section 5: Distributed Tracing (Questions 18-20)
 
-a) Manual inspection daily
-b) Monitor prediction distributions and performance metrics
-c) Not possible
-d) Only during retraining
+### Question 18
+What is a "span" in distributed tracing?
 
-**Answer:** B
+A) The total duration of a trace
+B) A single operation within a trace
+C) The time between two log messages
+D) A network connection
 
----
+**Answer: B**
 
-### Q23. What is prediction latency?
+### Question 19
+What protocol/framework has become the industry standard for instrumentation?
 
-a) Late predictions
-b) Time to generate prediction
-c) Model accuracy
-d) Training time
+A) Zipkin
+B) Jaeger
+C) OpenTelemetry
+D) Prometheus
 
-**Answer:** B
+**Answer: C**
 
----
+### Question 20
+What is the main advantage of Grafana Tempo over Jaeger?
 
-### Q24. What is the purpose of monitoring feature distributions?
+A) Better UI
+B) Faster queries
+C) Lower storage costs (object storage, minimal indexing)
+D) More features
 
-a) No purpose
-b) Detect data drift and distribution shifts
-c) Count features
-d) Feature selection
-
-**Answer:** B
-
----
-
-### Q25. What is an SLO (Service Level Objective)?
-
-a) Sales target
-b) Target reliability metric (e.g., 99.9% uptime)
-c) Team goal
-d) Training objective
-
-**Answer:** B
+**Answer: C**
 
 ---
 
-## Answer Key
+## Section 6: Alerting (Questions 21-23)
 
-1. B   2. B   3. B   4. B   5. B
-6. B   7. B   8. B   9. B   10. B
-11. B  12. B  13. B  14. B  15. B
-16. B  17. B  18. B  19. B  20. B
-21. B  22. B  23. B  24. B  25. B
+### Question 21
+What should every alert include to be actionable?
+
+A) Color coding
+B) Runbook URL or clear remediation steps
+C) List of all team members
+D) Historical trend graph
+
+**Answer: B**
+
+### Question 22
+What is the purpose of inhibition rules in Alertmanager?
+
+A) Prevent alerts from being sent
+B) Suppress lower-priority alerts when higher-priority ones are firing
+C) Slow down alert notifications
+D) Block external notifications
+
+**Answer: B**
+
+### Question 23
+What is "alert fatigue"?
+
+A) Alerts taking too long to send
+B) Team ignoring alerts due to too many false positives
+C) Alerts consuming too much CPU
+D) Alerts expiring before being acknowledged
+
+**Answer: B**
 
 ---
 
-## Scoring
+## Section 7: ML-Specific Monitoring (Questions 24-25)
 
-- **23-25 correct (92-100%)**: Excellent! Observability expert
-- **20-22 correct (80-88%)**: Good! Production-ready
-- **18-19 correct (72-76%)**: Fair. Review concepts
-- **Below 18 (< 72%)**: Review module materials
+### Question 24
+What is the Population Stability Index (PSI) used for?
+
+A) Measuring model accuracy
+B) Detecting data drift between two distributions
+C) Calculating training loss
+D) Monitoring GPU utilization
+
+**Answer: B**
+
+### Question 25
+What does SHAP stand for in the context of ML explainability?
+
+A) Statistical Hypothesis And Prediction
+B) SHapley Additive exPlanations
+C) Sampling Heuristic for Accurate Predictions
+D) System Health and Performance
+
+**Answer: B**
 
 ---
 
-**Next Module:** Module 09 - Infrastructure as Code
+## Section 8: Practical Scenarios (Short Answer)
+
+### Scenario 1: High Latency Investigation
+
+**Situation:** Your ML model serving endpoint suddenly has P99 latency increase from 100ms to 2000ms.
+
+**Question:** List 5 metrics/logs/traces you would check to diagnose the issue, and explain why.
+
+**Sample Answer:**
+1. **GPU utilization** (`gpu_utilization`) - Check if GPUs are saturated (>95%)
+2. **GPU memory** (`gpu_memory_used/total`) - Check for memory exhaustion
+3. **Batch size distribution** (`histogram_quantile(batch_size)`) - Unusually large batches cause slower processing
+4. **Error logs** (search for "ERROR" or "OOM") - Identify crashes or memory errors
+5. **Traces** (filter by high duration) - See which stage of pipeline is slow (preprocessing, inference, postprocessing)
+6. **Recent deployments** (`kubectl get events`) - Check if new version was deployed
+
+### Scenario 2: Designing Alerts
+
+**Situation:** You're setting up monitoring for a new fraud detection ML service that processes 10,000 transactions/second.
+
+**Question:** Design 3 critical alerts (specify metric, threshold, duration, and severity).
+
+**Sample Answer:**
+
+1. **High Error Rate**
+   - Metric: `(sum(rate(predictions_total{status="error"}[5m])) / sum(rate(predictions_total[5m]))) * 100`
+   - Threshold: `> 5%`
+   - Duration: `for: 5m`
+   - Severity: Critical
+   - Reason: >5% errors impacts many users
+
+2. **Model Accuracy Drop**
+   - Metric: `model_accuracy{dataset="validation"}`
+   - Threshold: `< 0.90`
+   - Duration: `for: 10m`
+   - Severity: Critical
+   - Reason: Below 90% accuracy means model is not performing adequately
+
+3. **Prediction Throughput Low**
+   - Metric: `sum(rate(predictions_total[5m]))`
+   - Threshold: `< 5000` (50% of expected)
+   - Duration: `for: 5m`
+   - Severity: Warning
+   - Reason: Significant drop in throughput may indicate scaling issues
+
+### Scenario 3: Data Drift Detection
+
+**Situation:** Your model's accuracy has degraded from 95% to 88% over the past week. You suspect data drift.
+
+**Question:** Describe the steps you would take to confirm and quantify the drift.
+
+**Sample Answer:**
+
+1. **Collect reference data:** Get feature distributions from training set or last known good period
+
+2. **Collect current data:** Gather recent production inference data (past week)
+
+3. **Calculate drift metrics per feature:**
+   - For numerical: Kolmogorov-Smirnov (KS) test, PSI
+   - For categorical: Chi-squared test
+
+4. **Identify drifted features:**
+   ```python
+   # PSI > 0.25 = significant drift
+   # KS test p-value < 0.05 = drift detected
+   ```
+
+5. **Visualize distributions:**
+   - Plot histograms comparing reference vs current
+   - Create drift dashboard in Grafana
+
+6. **Correlate with accuracy:**
+   - Check if features with highest drift correlate with accuracy drop
+
+7. **Root cause analysis:**
+   - Check logs for data pipeline changes
+   - Verify feature engineering logic
+   - Check for seasonality or external events
+
+8. **Action:**
+   - Retrain model on recent data
+   - Update feature engineering
+   - Set up continuous drift monitoring
+
+---
+
+## Scoring Guide
+
+- **Questions 1-25:** 1 point each (25 points total)
+- **Scenarios 1-3:** Bonus points for comprehensive answers
+- **Passing score:** 20/25 (80%)
+
+## Answer Key Summary
+
+1. B  | 2. C  | 3. B  | 4. B  | 5. C
+6. B  | 7. B  | 8. C  | 9. B  | 10. B
+11. B | 12. C | 13. B | 14. B | 15. C
+16. B | 17. B | 18. B | 19. C | 20. C
+21. B | 22. B | 23. B | 24. B | 25. B
+
+---
+
+## Additional Study Resources
+
+If you scored < 80%, review:
+- **Prometheus basics** (Questions 6-10): Lesson 02
+- **Grafana** (Questions 11-14): Lesson 03
+- **Logging** (Questions 15-17): Lesson 04
+- **Tracing** (Questions 18-20): Lesson 05
+- **Alerting** (Questions 21-23): Lesson 06
+- **ML Monitoring** (Questions 24-25): Lesson 07
+
+---
+
+**Good luck!** 🚀

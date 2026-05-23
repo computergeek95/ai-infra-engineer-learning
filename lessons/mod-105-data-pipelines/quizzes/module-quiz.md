@@ -1,313 +1,334 @@
-# Module 05: Data Pipelines for ML - Quiz
+# Module 05: Data Pipelines - Quiz
 
-**Time Limit:** 30 minutes
-**Passing Score:** 80% (20/25 questions)
-**Coverage:** Data pipelines, ETL, orchestration
+## Instructions
+- This quiz covers all lessons in Module 05 (Data Pipelines)
+- 25 questions total covering Apache Airflow, DVC, Spark, Kafka, Data Quality, and Monitoring
+- Mix of multiple choice, true/false, and short answer questions
+- Passing score: 80% (20/25 correct)
 
 ---
 
-## Section 1: Data Pipeline Fundamentals (5 questions)
+## Section 1: Apache Airflow Fundamentals (Questions 1-6)
 
-### Q1. What is ETL?
+### Question 1
+What is the primary purpose of Apache Airflow in ML infrastructure?
 
-a) Embedded Testing Language
-b) Extract, Transform, Load
-c) Efficient Transfer Layer
-d) Error Tracking Log
+A) To train machine learning models
+B) To orchestrate and schedule complex data workflows
+C) To serve model predictions
+D) To store training data
 
 **Answer:** B
 
 ---
 
-### Q2. What is the difference between ETL and ELT?
+### Question 2
+In Airflow, what does DAG stand for?
 
-a) No difference
-b) ETL transforms before loading, ELT loads then transforms
-c) ELT is deprecated
-d) ETL is only for ML
-
-**Answer:** B
-
----
-
-### Q3. What is a data pipeline?
-
-a) Physical pipe for data
-b) Automated workflow for moving and transforming data
-c) A type of database
-d) A network protocol
+A) Data Aggregation Graph
+B) Directed Acyclic Graph
+C) Dynamic Algorithm Generator
+D) Distributed Application Gateway
 
 **Answer:** B
 
 ---
 
-### Q4. Why is data versioning important in ML pipelines?
+### Question 3
+True or False: In Airflow, tasks within a DAG can have circular dependencies.
 
-a) It's not important
-b) Enables reproducibility and debugging
-c) Saves storage space
-d) Makes training faster
+**Answer:** False (DAG must be acyclic - no cycles allowed)
+
+---
+
+### Question 4
+Which Airflow component is responsible for executing tasks?
+
+A) Scheduler
+B) Web Server
+C) Executor
+D) Metadata Database
+
+**Answer:** C
+
+---
+
+### Question 5
+What is the purpose of the `depends_on_past` parameter in Airflow?
+
+A) To prevent tasks from running if the previous DAG run failed
+B) To share data between tasks
+C) To schedule tasks in the past
+D) To check task dependencies
+
+**Answer:** A
+
+---
+
+### Question 6 (Short Answer)
+Explain the difference between `CeleryExecutor` and `LocalExecutor` in Airflow.
+
+**Sample Answer:**
+- **LocalExecutor**: Runs tasks in parallel on a single machine using multiprocessing. Good for development and small-scale deployments.
+- **CeleryExecutor**: Distributes tasks across multiple worker machines using Celery. Suitable for production environments requiring horizontal scalability.
+
+---
+
+## Section 2: Data Versioning with DVC (Questions 7-10)
+
+### Question 7
+What problem does DVC (Data Version Control) solve?
+
+A) Managing large datasets with Git
+B) Tracking model performance
+C) Deploying models to production
+D) Monitoring data quality
+
+**Answer:** A
+
+---
+
+### Question 8
+True or False: DVC stores the actual data files in Git repositories.
+
+**Answer:** False (DVC stores metadata/pointers in Git, actual data in remote storage)
+
+---
+
+### Question 9
+Which command is used to track a new dataset with DVC?
+
+A) `dvc add <file>`
+B) `dvc track <file>`
+C) `dvc commit <file>`
+D) `dvc push <file>`
+
+**Answer:** A
+
+---
+
+### Question 10
+What is the purpose of a DVC pipeline?
+
+A) To clean data
+B) To define reproducible data processing workflows
+C) To compress large files
+D) To encrypt sensitive data
 
 **Answer:** B
 
 ---
 
-### Q5. What is a common cause of ML pipeline failures?
+## Section 3: Apache Spark (Questions 11-15)
 
-a) Too much documentation
-b) Data quality issues and schema changes
-c) Using Python
-d) Having backups
+### Question 11
+What is the main advantage of Apache Spark over traditional MapReduce?
 
-**Answer:** B
-
----
-
-## Section 2: Apache Airflow (6 questions)
-
-### Q6. What is Apache Airflow?
-
-a) A cloud provider
-b) Workflow orchestration platform
-c) A database
-d) A container runtime
+A) Better security
+B) In-memory processing for 100x speedup
+C) Smaller storage requirements
+D) Easier installation
 
 **Answer:** B
 
 ---
 
-### Q7. What is a DAG in Airflow?
+### Question 12
+In Spark, what is a DataFrame?
 
-a) Data Analysis Graph
-b) Directed Acyclic Graph defining workflow
-c) Database Access Gateway
-d) Deployment Automation Guide
+A) A distributed collection of data organized into named columns
+B) A single-machine pandas DataFrame
+C) A SQL database table
+D) A JSON file format
+
+**Answer:** A
+
+---
+
+### Question 13
+True or False: In Spark, transformations are executed immediately when called.
+
+**Answer:** False (Transformations are lazy and only executed when an action is called)
+
+---
+
+### Question 14
+Which of the following is a Spark action (not a transformation)?
+
+A) `filter()`
+B) `map()`
+C) `groupBy()`
+D) `count()`
+
+**Answer:** D
+
+---
+
+### Question 15 (Short Answer)
+Explain what "shuffle" means in Spark and why it's expensive.
+
+**Sample Answer:**
+A shuffle is the process of redistributing data across partitions, typically triggered by operations like `groupBy()`, `join()`, or `reduceByKey()`. It's expensive because:
+- Requires disk I/O to write intermediate results
+- Involves network transfer of data between executors
+- Can cause memory pressure and spilling to disk
+- Adds latency to job execution
+
+---
+
+## Section 4: Apache Kafka (Questions 16-19)
+
+### Question 16
+What is Apache Kafka primarily used for?
+
+A) Batch data processing
+B) Real-time event streaming
+C) Model training
+D) Data warehousing
 
 **Answer:** B
 
 ---
 
-### Q8. What does "acyclic" mean in DAG?
+### Question 17
+In Kafka, what is a topic?
 
-a) Can have cycles
-b) No circular dependencies/loops
-c) Very fast
-d) Requires cycles
-
-**Answer:** B
-
----
-
-### Q9. What is an Airflow Operator?
-
-a) Human operator
-b) Task template defining what to execute
-c) Mathematical operator
-d) Network operator
+A) A database table
+B) A category or feed name to which messages are published
+C) A consumer instance
+D) A configuration file
 
 **Answer:** B
 
 ---
 
-### Q10. What is the purpose of task dependencies in Airflow?
+### Question 18
+True or False: In Kafka, consumers in the same consumer group will receive duplicate messages.
 
-a) Make tasks slower
-b) Define execution order and relationships
-c) No real purpose
-d) Increase complexity
+**Answer:** False (Messages are distributed among consumers in a group - load balancing)
+
+---
+
+### Question 19
+What is the purpose of partitions in Kafka?
+
+A) To encrypt messages
+B) To enable parallel processing and scalability
+C) To compress data
+D) To validate message format
 
 **Answer:** B
 
 ---
 
-### Q11. How do you trigger an Airflow DAG manually?
+## Section 5: Data Quality & Validation (Questions 20-22)
 
-a) Restart the server
-b) Use UI or CLI to trigger
-c) Not possible
-d) Wait for schedule
+### Question 20
+Which of the following is NOT a dimension of data quality?
+
+A) Completeness
+B) Accuracy
+C) Velocity
+D) Consistency
+
+**Answer:** C (Velocity is from the 3 Vs of Big Data, not a quality dimension)
+
+---
+
+### Question 21
+What is data drift in the context of ML?
+
+A) Data being corrupted during transmission
+B) Statistical properties of data changing over time
+C) Data being deleted accidentally
+D) Data being stored in the wrong location
 
 **Answer:** B
 
 ---
 
-## Section 3: Data Quality and Validation (4 questions)
+### Question 22 (Short Answer)
+Name three common data quality checks you should implement in an ML training pipeline.
 
-### Q12. What is data drift?
+**Sample Answer:**
+1. **Null/Missing Value Checks**: Ensure critical columns don't have excessive nulls
+2. **Range Validation**: Check numerical values are within expected bounds (e.g., age between 0-120)
+3. **Schema Validation**: Verify expected columns exist with correct data types
+4. **Uniqueness Checks**: Ensure ID columns don't have duplicates
+5. **Distribution Checks**: Detect if data distribution has shifted significantly
 
-a) Data moving slowly
-b) Statistical properties of data changing over time
-c) Data corruption
-d) Network latency
+(Any 3 are acceptable)
+
+---
+
+## Section 6: Monitoring & Error Handling (Questions 23-25)
+
+### Question 23
+What are the three pillars of observability?
+
+A) Metrics, Logs, Dashboards
+B) Metrics, Logs, Traces
+C) Alerts, Logs, Reports
+D) Metrics, Alerts, Traces
 
 **Answer:** B
 
 ---
 
-### Q13. What is schema validation?
+### Question 24
+What is a Dead Letter Queue (DLQ)?
 
-a) Validating database schemas
-b) Checking data conforms to expected structure
-c) Validating code
-d) Network validation
-
-**Answer:** B
-
----
-
-### Q14. What is Great Expectations?
-
-a) A motivational tool
-b) Python library for data validation
-c) A cloud service
-d) A testing framework for code
+A) A queue for high-priority messages
+B) A storage location for messages that failed processing
+C) A queue that automatically deletes old messages
+D) A queue for archiving processed messages
 
 **Answer:** B
 
 ---
 
-### Q15. Why validate data before training ML models?
+### Question 25
+True or False: A circuit breaker pattern helps prevent cascading failures by stopping requests to a failing service.
 
-a) Not necessary
-b) Prevent training on bad data that degrades model quality
-c) Slow down pipeline
-d) Increase costs
-
-**Answer:** B
+**Answer:** True
 
 ---
 
-## Section 4: Batch vs Streaming (5 questions)
+## Scoring Guide
 
-### Q16. What is batch processing?
+**Points Distribution:**
+- Section 1 (Airflow): 6 points
+- Section 2 (DVC): 4 points
+- Section 3 (Spark): 5 points
+- Section 4 (Kafka): 4 points
+- Section 5 (Data Quality): 3 points
+- Section 6 (Monitoring): 3 points
 
-a) Processing data in real-time
-b) Processing data in large chunks at intervals
-c) Processing one record at a time
-d) No processing
+**Total: 25 points**
 
-**Answer:** B
-
----
-
-### Q17. What is stream processing?
-
-a) Processing historical data
-b) Processing data continuously as it arrives
-c) Batch processing with different name
-d) Video processing
-
-**Answer:** B
+**Grading:**
+- 23-25: Excellent (92-100%)
+- 20-22: Very Good (80-88%)
+- 17-19: Good (68-76%)
+- 14-16: Satisfactory (56-64%)
+- Below 14: Needs Improvement
 
 ---
 
-### Q18. Which tool is commonly used for stream processing?
+## Additional Practice
 
-a) Excel
-b) Apache Kafka, Apache Flink
-c) Jupyter Notebook
-d) Git
+For more practice, try these activities:
 
-**Answer:** B
-
----
-
-### Q19. When should you use batch processing for ML?
-
-a) Never
-b) For offline model training on historical data
-c) For real-time predictions
-d) Always
-
-**Answer:** B
+1. **Hands-on Lab**: Complete the exercises in the `exercises/` directory
+2. **Build a Pipeline**: Create an end-to-end pipeline using Airflow + Spark + Kafka
+3. **Data Quality Project**: Implement comprehensive data validation using Great Expectations
+4. **Monitoring Setup**: Set up Prometheus + Grafana for pipeline monitoring
+5. **Real-world Challenge**: Process a large dataset (> 1GB) with Spark and track with DVC
 
 ---
 
-### Q20. When is stream processing preferred?
+## Answer Key Location
 
-a) For historical analysis only
-b) For real-time features and predictions
-c) Never
-d) Only for small data
+Full answer key with explanations available at: `exercises/solutions/quiz_answers.md`
 
-**Answer:** B
-
----
-
-## Section 5: Data Storage and Feature Engineering (5 questions)
-
-### Q21. What is a data lake?
-
-a) A relational database
-b) Repository storing raw data in native format
-c) A caching system
-d) A backup solution
-
-**Answer:** B
-
----
-
-### Q22. What is feature engineering?
-
-a) Building features in UI
-b) Creating ML model inputs from raw data
-c) Engineering team features
-d) Software features
-
-**Answer:** B
-
----
-
-### Q23. What is a feature store?
-
-a) App store for features
-b) Centralized repository for ML features
-c) Storage for models
-d) Data warehouse
-
-**Answer:** B
-
----
-
-### Q24. Why use a feature store?
-
-a) Not useful
-b) Share features across teams, ensure consistency
-c) Increase complexity
-d) Slow down development
-
-**Answer:** B
-
----
-
-### Q25. What format is commonly used for efficient ML data storage?
-
-a) CSV only
-b) Parquet, TFRecord, Arrow
-c) Word documents
-d) JSON only
-
-**Answer:** B
-
----
-
-## Answer Key
-
-1. B   2. B   3. B   4. B   5. B
-6. B   7. B   8. B   9. B   10. B
-11. B  12. B  13. B  14. B  15. B
-16. B  17. B  18. B  19. B  20. B
-21. B  22. B  23. B  24. B  25. B
-
----
-
-## Scoring
-
-- **23-25 correct (92-100%)**: Excellent! Pipeline expert
-- **20-22 correct (80-88%)**: Good! Ready for MLOps
-- **18-19 correct (72-76%)**: Fair. Review weak areas
-- **Below 18 (< 72%)**: Review module materials
-
----
-
-**Next Module:** Module 06 - MLOps
+**Note:** For short answer questions, answers may vary. The sample answers provided are examples of acceptable responses. Focus on demonstrating understanding of core concepts rather than exact wording.

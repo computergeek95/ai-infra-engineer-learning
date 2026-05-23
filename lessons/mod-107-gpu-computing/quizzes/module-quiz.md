@@ -1,313 +1,463 @@
-# Module 07: GPU Computing for ML - Quiz
+# Module 07: GPU Computing & Distributed Training - Quiz
 
-**Time Limit:** 30 minutes
-**Passing Score:** 80% (20/25 questions)
-**Coverage:** GPU architecture, CUDA, optimization
+## Instructions
 
----
-
-## Section 1: GPU Fundamentals (5 questions)
-
-### Q1. Why are GPUs faster than CPUs for ML training?
-
-a) Higher clock speed
-b) Massive parallelism with thousands of cores
-c) More cache memory
-d) Better cooling
-
-**Answer:** B
+- 25 multiple choice and short answer questions
+- Passing score: 80% (20/25 correct)
+- Time limit: 45 minutes
+- Open book (can reference lesson materials)
 
 ---
 
-### Q2. What does CUDA stand for?
+## Multiple Choice Questions (1-20)
 
-a) Computer Unified Device Architecture
-b) Compute Unified Device Architecture
-c) Central Unit Data Access
-d) Core Unified Development API
+### Question 1: GPU Architecture
+**What is the primary difference between GPU and CPU architecture that makes GPUs suitable for machine learning?**
 
-**Answer:** B
+A) GPUs have higher clock speeds
+B) GPUs have thousands of simpler cores optimized for parallel operations
+C) GPUs have larger cache memory
+D) GPUs have better branch prediction
 
----
-
-### Q3. What is the difference between a GPU and a TPU?
-
-a) No difference
-b) TPUs are specialized for tensor operations, GPUs general-purpose
-c) TPUs are slower
-d) GPUs don't work for ML
-
-**Answer:** B
+<details>
+<summary>Answer</summary>
+B) GPUs have thousands of simpler cores optimized for parallel operations
+</details>
 
 ---
 
-### Q4. What is VRAM?
+### Question 2: CUDA Cores vs Tensor Cores
+**What is the main advantage of Tensor Cores over CUDA Cores for deep learning?**
 
-a) Virtual RAM
-b) Video RAM / GPU memory
-c) Very fast RAM
-d) Variable RAM
+A) Higher clock speeds
+B) Larger memory bandwidth
+C) Accelerated matrix multiply-accumulate operations with mixed precision
+D) Better support for integer operations
 
-**Answer:** B
-
----
-
-### Q5. What happens when model doesn't fit in GPU memory?
-
-a) Automatic optimization
-b) Out of memory error or need to use CPU
-c) GPU gets more memory
-d) Nothing
-
-**Answer:** B
+<details>
+<summary>Answer</summary>
+C) Accelerated matrix multiply-accumulate operations with mixed precision (up to 8x speedup for FP16)
+</details>
 
 ---
 
-## Section 2: CUDA and cuDNN (5 questions)
+### Question 3: Memory Hierarchy
+**Which GPU memory type has the FASTEST access speed?**
 
-### Q6. What is cuDNN?
+A) Global Memory (VRAM)
+B) Shared Memory
+C) Registers
+D) L2 Cache
 
-a) CUDA Network
-b) CUDA Deep Neural Network library
-c) CPU library
-d) Database
-
-**Answer:** B
-
----
-
-### Q7. Why must CUDA versions match between driver and toolkit?
-
-a) No need to match
-b) Compatibility and functionality requirements
-c) Just a suggestion
-d) Only for performance
-
-**Answer:** B
+<details>
+<summary>Answer</summary>
+C) Registers (~1 cycle latency)
+</details>
 
 ---
 
-### Q8. What is the NVIDIA Container Toolkit used for?
+### Question 4: Warp Divergence
+**A warp consists of how many threads that execute together in SIMT fashion?**
 
-a) General containers
-b) Enable GPU access in Docker containers
-c) CPU optimization
-d) Network configuration
+A) 8 threads
+B) 16 threads
+C) 32 threads
+D) 64 threads
 
-**Answer:** B
-
----
-
-### Q9. How do you check CUDA version on a system?
-
-a) `cuda --version`
-b) `nvidia-smi` or `nvcc --version`
-c) `gpu --version`
-d) `python --cuda`
-
-**Answer:** B
+<details>
+<summary>Answer</summary>
+C) 32 threads
+</details>
 
 ---
 
-### Q10. What is the purpose of CUDA streams?
+### Question 5: Mixed Precision Training
+**What is the typical memory reduction when using FP16 mixed precision training compared to FP32?**
 
-a) Video streaming
-b) Concurrent execution of operations
-c) Data streaming
-d) Network streams
+A) 1.5x
+B) 2x
+C) 4x
+D) 8x
 
-**Answer:** B
-
----
-
-## Section 3: Multi-GPU Training (5 questions)
-
-### Q11. What is data parallelism?
-
-a) Parallel databases
-b) Split batch across GPUs, same model on each
-c) Split model across GPUs
-d) No parallelism
-
-**Answer:** B
+<details>
+<summary>Answer</summary>
+B) 2x (FP16 uses 2 bytes vs FP32's 4 bytes per parameter)
+</details>
 
 ---
 
-### Q12. What is model parallelism?
+### Question 6: DataParallel vs DistributedDataParallel
+**Which statement about DataParallel (DP) vs DistributedDataParallel (DDP) is TRUE?**
 
-a) Training multiple models
-b) Split model across GPUs
-c) Same as data parallelism
-d) Not possible
+A) DP is faster than DDP
+B) DP uses multiple processes, DDP uses a single process
+C) DDP has a GPU 0 bottleneck, DP does not
+D) DDP is faster and uses multiple processes
 
-**Answer:** B
-
----
-
-### Q13. When should you use model parallelism?
-
-a) Always
-b) When model too large for single GPU memory
-c) Never
-d) Only for inference
-
-**Answer:** B
+<details>
+<summary>Answer</summary>
+D) DDP is faster and uses multiple processes (no GIL contention, no GPU 0 bottleneck)
+</details>
 
 ---
 
-### Q14. What is NCCL?
+### Question 7: AllReduce Operation
+**In distributed training, what does the AllReduce operation do?**
 
-a) Network protocol
-b) NVIDIA Collective Communications Library for multi-GPU
-c) Neural network
-d) Cloud service
+A) Sends data from rank 0 to all other ranks
+B) Combines values from all ranks and distributes the result to all ranks
+C) Gathers data from all ranks to rank 0
+D) Scatters data from rank 0 to all ranks
 
-**Answer:** B
-
----
-
-### Q15. What is gradient accumulation?
-
-a) Storing all gradients
-b) Accumulate gradients over multiple batches before update
-c) Deleting gradients
-d) Gradient backup
-
-**Answer:** B
+<details>
+<summary>Answer</summary>
+B) Combines values from all ranks (e.g., sum, average) and distributes the result to all ranks
+</details>
 
 ---
 
-## Section 4: GPU Optimization (5 questions)
+### Question 8: Data Parallelism
+**In data parallelism, what is replicated across GPUs?**
 
-### Q16. What is mixed precision training?
+A) The data
+B) The model
+C) The optimizer
+D) The loss function
 
-a) Random precision
-b) Using FP16 and FP32 together to speed up training
-c) Low quality training
-d) Multiple models
-
-**Answer:** B
-
----
-
-### Q17. What is the benefit of using FP16 (half precision)?
-
-a) Better accuracy
-b) Faster computation and lower memory usage
-c) Easier debugging
-d) No benefits
-
-**Answer:** B
+<details>
+<summary>Answer</summary>
+B) The model is replicated; data is split across GPUs
+</details>
 
 ---
 
-### Q18. What is tensor cores on NVIDIA GPUs?
+### Question 9: Model Parallelism
+**When is model parallelism necessary instead of data parallelism?**
 
-a) CPU cores
-b) Specialized hardware for matrix operations
-c) Storage cores
-d) Network cores
+A) When you want faster training
+B) When the model is too large to fit on a single GPU
+C) When you have a large dataset
+D) When you want better accuracy
 
-**Answer:** B
-
----
-
-### Q19. How can you optimize GPU utilization?
-
-a) Use smaller batches
-b) Maximize batch size, use mixed precision, pipeline data
-c) Use CPU instead
-d) Add more RAM
-
-**Answer:** B
+<details>
+<summary>Answer</summary>
+B) When the model is too large to fit on a single GPU's memory
+</details>
 
 ---
 
-### Q20. What is the purpose of GPU profiling?
+### Question 10: Gradient Checkpointing
+**What is the memory vs speed trade-off of gradient checkpointing?**
 
-a) User profiling
-b) Identify performance bottlenecks
-c) Security auditing
-d) Cost tracking
+A) More memory, faster training
+B) Less memory, faster training
+C) More memory, slower training
+D) Less memory, slower training
 
-**Answer:** B
-
----
-
-## Section 5: Cloud GPUs and Best Practices (5 questions)
-
-### Q21. Which AWS instance type provides GPU access?
-
-a) t3.large
-b) p3, p4, g4 instances
-c) m5.xlarge
-d) c5.4xlarge
-
-**Answer:** B
+<details>
+<summary>Answer</summary>
+D) Less memory (store ~√N activations instead of N), slower training (~33% slower due to recomputation)
+</details>
 
 ---
 
-### Q22. What is a GPU spot instance used for?
+### Question 11: Ring AllReduce
+**What is the communication complexity (bandwidth per GPU) of Ring AllReduce?**
 
-a) Critical production workloads
-b) Cost-effective training with interruption tolerance
-c) Real-time inference
-d) Databases
+A) O(N) where N is number of GPUs
+B) O(N²)
+C) O(log N)
+D) O(1) - constant
 
-**Answer:** B
-
----
-
-### Q23. What is the typical cost difference between GPU and CPU instances?
-
-a) Same cost
-b) GPUs 3-10x more expensive per hour
-c) CPUs more expensive
-d) GPUs are free
-
-**Answer:** B
+<details>
+<summary>Answer</summary>
+D) O(1) - bandwidth requirement per GPU is constant regardless of GPU count (this is why it scales well)
+</details>
 
 ---
 
-### Q24. Best practice for GPU resource allocation in Kubernetes?
+### Question 12: Pipeline Parallelism
+**What is the main overhead/inefficiency in pipeline parallelism?**
 
-a) Oversubscribe GPUs
-b) Request exact GPU count needed, use limits
-c) Never use GPUs in Kubernetes
-d) Share GPUs randomly
+A) Communication overhead
+B) Memory fragmentation
+C) Pipeline "bubble" at start and end
+D) Gradient synchronization
 
-**Answer:** B
-
----
-
-### Q25. What is Multi-Instance GPU (MIG)?
-
-a) Multiple GPU purchases
-b) Partition single GPU into multiple instances
-c) Running multiple models
-d) Cloud service
-
-**Answer:** B
+<details>
+<summary>Answer</summary>
+C) Pipeline "bubble" where some GPUs are idle at the start and end of each batch
+</details>
 
 ---
 
-## Answer Key
+### Question 13: ZeRO Stage 3
+**What does DeepSpeed ZeRO Stage 3 partition across GPUs?**
 
-1. B   2. B   3. B   4. B   5. B
-6. B   7. B   8. B   9. B   10. B
-11. B  12. B  13. B  14. B  15. B
-16. B  17. B  18. B  19. B  20. B
-21. B  22. B  23. B  24. B  25. B
+A) Only optimizer states
+B) Optimizer states and gradients
+C) Optimizer states, gradients, and model parameters
+D) Only model parameters
 
----
-
-## Scoring
-
-- **23-25 correct (92-100%)**: Excellent! GPU expert
-- **20-22 correct (80-88%)**: Good! Ready for production
-- **18-19 correct (72-76%)**: Fair. Review concepts
-- **Below 18 (< 72%)**: Review module materials
+<details>
+<summary>Answer</summary>
+C) Optimizer states, gradients, and model parameters (maximum memory reduction)
+</details>
 
 ---
 
-**Next Module:** Module 08 - Monitoring and Observability
+### Question 14: Flash Attention
+**What is the memory complexity of Flash Attention compared to standard attention?**
+
+A) O(N²) same as standard
+B) O(N log N)
+C) O(N)
+D) O(√N)
+
+<details>
+<summary>Answer</summary>
+C) O(N) - Flash Attention avoids materializing the O(N²) attention matrix
+</details>
+
+---
+
+### Question 15: GPU Utilization
+**If GPU utilization is consistently <50%, what is the MOST LIKELY bottleneck?**
+
+A) GPU compute is too slow
+B) Data loading or CPU preprocessing
+C) Not enough GPU memory
+D) Network bandwidth
+
+<details>
+<summary>Answer</summary>
+B) Data loading or CPU preprocessing (GPU is waiting for data)
+</details>
+
+---
+
+### Question 16: Memory During Training
+**For a model with M parameters trained with Adam optimizer in FP32, approximately how much memory is needed (excluding activations)?**
+
+A) M bytes
+B) 2M bytes
+C) 4M bytes
+D) 16M bytes
+
+<details>
+<summary>Answer</summary>
+D) ~16M bytes = 4M (parameters) + 4M (gradients) + 8M (Adam states: momentum + variance)
+</details>
+
+---
+
+### Question 17: Pinned Memory
+**What is the main benefit of using pinned memory in PyTorch DataLoader?**
+
+A) Faster CPU processing
+B) Larger batch sizes
+C) Faster CPU-to-GPU memory transfers
+D) Lower memory usage
+
+<details>
+<summary>Answer</summary>
+C) Faster CPU-to-GPU memory transfers (2-3x faster via DMA)
+</details>
+
+---
+
+### Question 18: DistributedSampler
+**Why is DistributedSampler necessary in DDP training?**
+
+A) To ensure each GPU processes different data samples
+B) To increase batch size
+C) To improve data loading speed
+D) To reduce memory usage
+
+<details>
+<summary>Answer</summary>
+A) To ensure each GPU processes different data samples (no overlap)
+</details>
+
+---
+
+### Question 19: Gradient Accumulation
+**If batch_size=16, accumulation_steps=4, world_size=8, what is the effective batch size?**
+
+A) 16
+B) 64
+C) 128
+D) 512
+
+<details>
+<summary>Answer</summary>
+D) 512 (16 × 4 × 8 = 512)
+</details>
+
+---
+
+### Question 20: Tensor Parallelism
+**In tensor parallelism with column-wise weight splitting, what operation is needed after computation?**
+
+A) AllReduce (sum)
+B) Concatenation
+C) Broadcast
+D) Scatter
+
+<details>
+<summary>Answer</summary>
+B) Concatenation - each GPU computes a portion of columns, results are concatenated
+</details>
+
+---
+
+## Short Answer Questions (21-25)
+
+### Question 21: GPU Memory Breakdown
+**List the 4 main components that consume GPU memory during training and give approximate size for each (assuming M parameters).**
+
+<details>
+<summary>Answer</summary>
+
+1. Model Parameters: M parameters × 4 bytes (FP32) = 4M bytes
+2. Gradients: M × 4 bytes = 4M bytes
+3. Optimizer States (Adam): M × 8 bytes = 8M bytes (momentum + variance)
+4. Activations: Varies with batch size and sequence length (can be largest component)
+
+Total: ~16M + activations
+</details>
+
+---
+
+### Question 22: Profiling Workflow
+**Describe the steps you would take to diagnose why a training job has low GPU utilization (<50%).**
+
+<details>
+<summary>Answer</summary>
+
+1. Monitor GPU utilization with `nvidia-smi` or similar
+2. Profile data loading time vs compute time
+3. Check batch size (too small = underutilization)
+4. Profile with PyTorch Profiler or Nsight Systems
+5. Look for CPU-GPU synchronization points (.item(), .cpu())
+6. Check DataLoader configuration (num_workers, pin_memory)
+7. Verify no excessive disk I/O or preprocessing
+8. Consider increasing batch size if memory allows
+
+Key insight: GPU util <50% usually indicates data loading bottleneck, not compute.
+</details>
+
+---
+
+### Question 23: DDP Setup
+**Write the minimal code to set up a DistributedDataParallel model in PyTorch. Include process group initialization and model wrapping.**
+
+<details>
+<summary>Answer</summary>
+
+```python
+import torch
+import torch.distributed as dist
+from torch.nn.parallel import DistributedDataParallel as DDP
+
+# Initialize process group
+def setup(rank, world_size):
+    os.environ['MASTER_ADDR'] = 'localhost'
+    os.environ['MASTER_PORT'] = '12355'
+    dist.init_process_group("nccl", rank=rank, world_size=world_size)
+
+# Setup
+setup(rank, world_size)
+
+# Create model and move to GPU
+model = MyModel().to(rank)
+
+# Wrap with DDP
+ddp_model = DDP(model, device_ids=[rank])
+
+# Use ddp_model for training
+# ...
+
+# Cleanup
+dist.destroy_process_group()
+```
+</details>
+
+---
+
+### Question 24: Memory Optimization Techniques
+**List 5 techniques to reduce GPU memory usage during training and briefly explain each.**
+
+<details>
+<summary>Answer</summary>
+
+1. **Mixed Precision (FP16/BF16)**: Use 16-bit floats instead of 32-bit (2x reduction)
+
+2. **Gradient Checkpointing**: Recompute activations during backward pass instead of storing (√N memory)
+
+3. **Gradient Accumulation**: Simulate larger batch with smaller physical batches
+
+4. **Reduce Batch Size**: Smaller batches use less activation memory
+
+5. **ZeRO Optimizer**: Partition optimizer states, gradients, parameters across GPUs
+
+Bonus:
+- Flash Attention: O(N) vs O(N²) for attention
+- CPU Offloading: Move unused layers to CPU
+- Model Parallelism: Split model across GPUs
+</details>
+
+---
+
+### Question 25: Scaling Efficiency
+**Explain the difference between strong scaling and weak scaling in distributed training. Which is more commonly used in deep learning and why?**
+
+<details>
+<summary>Answer</summary>
+
+**Strong Scaling:**
+- Fixed total workload
+- More GPUs = same dataset processed faster
+- Example: 1000 samples on 1 GPU vs 1000 samples on 4 GPUs
+- Ideal: 4x speedup with 4 GPUs
+- Issue: Communication overhead limits scaling
+
+**Weak Scaling:**
+- Fixed per-GPU workload
+- More GPUs = larger total batch size
+- Example: 1000 samples per GPU × N GPUs
+- Ideal: Same time regardless of GPU count
+- Maintains GPU efficiency
+
+**Most common in DL: Weak scaling**
+
+Why:
+- Maintains good GPU utilization
+- Larger batches can improve convergence (with proper LR scaling)
+- Avoids communication becoming bottleneck
+- Better matches how we scale training in practice
+
+Trade-off: May need to adjust learning rate for larger effective batch sizes.
+</details>
+
+---
+
+## Scoring Guide
+
+- **20-25 correct**: Excellent! Strong understanding of GPU computing and distributed training
+- **16-19 correct**: Good! Review topics you struggled with
+- **12-15 correct**: Pass. Review lessons and try again
+- **<12 correct**: Please review all lessons before retaking
+
+---
+
+## Next Steps
+
+After passing the quiz:
+1. Complete hands-on exercises in Module 07
+2. Implement a small distributed training project
+3. Proceed to Module 08: Monitoring & Observability
+
+---
+
+**Good luck!**

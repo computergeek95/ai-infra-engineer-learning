@@ -44,7 +44,13 @@ This repository contains a **complete, production-ready learning path** for beco
 
 ## ✨ What's New
 
-**Recently Added Content:**
+**May 2026 Update:**
+- 🧪 **All 62 promised labs authored** across all 10 modules (foundations → LLM infrastructure). Each lab is a substantive, runnable walkthrough with objectives, prerequisites, numbered steps, validation checklist, cleanup, and troubleshooting.
+- 📒 **Two new reading lists:** `advanced-engineer-path.md` and `staff-engineer-path.md` (9–18 months and 2–5 years respectively).
+- 🧹 **Structural cleanup:** mod-101 lecture duplicates resolved, quiz placement consolidated, empty Makefile/pyproject populated with real content, CURRICULUM.md self-claim corrected to reflect actual completion state.
+- 🔍 **Honesty pass on CURRICULUM.md:** the prior "100% Complete" claim has been replaced with a per-module exercise/lab accounting. Lectures and projects are excellent; exercises are 32 of 119 promised and being filled in over subsequent content drops.
+
+**Earlier:**
 - 📝 **Comprehensive Quizzes** for modules 102-110 (265+ questions)
   - Module 102: Cloud Computing (mid-module + final, 50 questions)
   - Module 103: Containerization (25 questions)

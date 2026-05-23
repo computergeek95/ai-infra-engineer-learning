@@ -1,369 +1,363 @@
-# Module 06: MLOps - Quiz
+# Module 06: MLOps & Experiment Tracking - Quiz
 
-**Time Limit:** 35 minutes
-**Passing Score:** 80% (24/30 questions)
-**Coverage:** MLOps practices, CI/CD, model management
+## Instructions
+- This quiz covers all 8 lessons in the MLOps module
+- 25 questions total
+- Mix of multiple choice, true/false, and short answer
+- Passing score: 80% (20/25 correct)
 
 ---
 
-## Section 1: MLOps Fundamentals (5 questions)
+## Section 1: Introduction to MLOps (Lessons 01-02)
 
-### Q1. What is MLOps?
+### Question 1
+What is the primary purpose of MLOps?
 
-a) Machine Learning Operations
-b) Model Learning Optimization
-c) Multi-Level Operations
-d) Managed Learning Platform
+A) To replace data scientists
+B) To automate and streamline the ML lifecycle from development to production
+C) To make models more accurate
+D) To reduce data storage costs
+
+**Answer:** B
+
+---
+
+### Question 2
+Which of the following is NOT a core component of the MLOps lifecycle?
+
+A) Data versioning
+B) Model training
+C) Frontend development
+D) Model monitoring
+
+**Answer:** C
+
+---
+
+### Question 3 (True/False)
+Experiment tracking tools like MLflow only store model training metrics and cannot store artifacts like model files.
+
+**Answer:** False (MLflow stores both metrics and artifacts including model files, datasets, and images)
+
+---
+
+### Question 4
+In MLflow, what is the purpose of a "Run"?
+
+A) To execute a deployed model
+B) To represent a single execution of model training code
+C) To deploy a model to production
+D) To version control your code
+
+**Answer:** B
+
+---
+
+## Section 2: Experiment Tracking (Lesson 03)
+
+### Question 5
+What information should be logged during ML experiments? (Select all that apply)
+
+A) Hyperparameters
+B) Evaluation metrics
+C) Training duration
+D) Dataset version
+E) All of the above
+
+**Answer:** E
+
+---
+
+### Question 6
+What is the purpose of experiment tagging in MLflow?
+
+A) To organize and filter experiments
+B) To improve model accuracy
+C) To reduce storage costs
+D) To automatically deploy models
 
 **Answer:** A
 
 ---
 
-### Q2. How does MLOps differ from DevOps?
+### Question 7 (Short Answer)
+Explain the difference between logging parameters and logging metrics in MLflow.
 
-a) No difference
-b) MLOps adds data versioning, model management, experiment tracking
-c) MLOps is simpler
-d) MLOps is only for Python
+**Answer:** Parameters are input values that configure the training process (e.g., learning rate, batch size) and are logged once at the start. Metrics are output values that measure model performance (e.g., accuracy, loss) and can be logged multiple times throughout training to track progress.
+
+---
+
+## Section 3: Feature Stores (Lesson 04)
+
+### Question 8
+What problem does a feature store solve?
+
+A) Training-serving skew
+B) Feature reusability across teams
+C) Point-in-time correctness
+D) All of the above
+
+**Answer:** D
+
+---
+
+### Question 9
+What is the difference between offline and online feature stores?
+
+A) Offline is for training, online is for inference
+B) Offline is slower, online is faster
+C) Offline stores historical data, online stores recent data
+D) All of the above
+
+**Answer:** D
+
+---
+
+### Question 10 (True/False)
+Feature stores automatically guarantee that features used in training match features used in production serving.
+
+**Answer:** True (This is a primary benefit - feature stores ensure consistency by using the same feature definitions and computation logic for both training and serving)
+
+---
+
+### Question 11
+In Feast, what is a Feature View?
+
+A) A UI for viewing features
+B) A definition of a group of related features with a common data source
+C) A visualization of feature importance
+D) A cache for frequently accessed features
 
 **Answer:** B
 
 ---
 
-### Q3. What are the three key pillars of MLOps?
+## Section 4: CI/CD for ML (Lesson 05)
 
-a) Code, containers, cloud
-b) People, process, platform
-c) Data, models, deployment
-d) Training, testing, production
+### Question 12
+How does CI/CD for ML differ from traditional software CI/CD?
+
+A) It includes data validation steps
+B) It tests model performance, not just code correctness
+C) It versions data and models in addition to code
+D) All of the above
+
+**Answer:** D
+
+---
+
+### Question 13
+What should be included in automated ML tests? (Select all that apply)
+
+A) Data schema validation
+B) Model performance thresholds
+C) Inference latency checks
+D) Model fairness tests
+E) All of the above
+
+**Answer:** E
+
+---
+
+### Question 14
+In a deployment gate for ML models, what criteria might prevent a model from being deployed?
+
+A) Performance regression compared to current production model
+B) Exceeds latency thresholds
+C) Fails fairness checks
+D) All of the above
+
+**Answer:** D
+
+---
+
+### Question 15 (Short Answer)
+Explain what a "canary deployment" is and why it's useful for ML models.
+
+**Answer:** A canary deployment gradually routes a small percentage of traffic (e.g., 10%) to a new model version while keeping most traffic on the existing version. This allows monitoring of the new model's performance in production with real traffic before fully rolling it out. If issues are detected, you can quickly rollback with minimal impact.
+
+---
+
+## Section 5: Model Deployment (Lesson 06)
+
+### Question 16
+Which deployment pattern is best for making predictions on large datasets that don't require immediate results?
+
+A) Real-time serving
+B) Batch inference
+C) Stream processing
+D) Edge deployment
 
 **Answer:** B
 
 ---
 
-### Q4. What is the goal of MLOps?
+### Question 17
+What is the primary benefit of model quantization?
 
-a) Make ML development slower
-b) Streamline ML model development and deployment
-c) Eliminate data scientists
-d) Increase complexity
-
-**Answer:** B
-
----
-
-### Q5. What is technical debt in ML systems?
-
-a) Money owed for tools
-b) Long-term costs from quick fixes and poor practices
-c) Training costs
-d) Cloud bills
+A) Increases model accuracy
+B) Reduces model size and improves inference speed
+C) Makes models easier to train
+D) Improves data quality
 
 **Answer:** B
 
 ---
 
-## Section 2: Model Training and Experiment Tracking (6 questions)
+### Question 18 (True/False)
+Horizontal Pod Autoscaling in Kubernetes can automatically scale ML model serving pods based on CPU, memory, and custom metrics like request rate.
 
-### Q6. What is experiment tracking?
+**Answer:** True
 
-a) Tracking bugs
-b) Recording model parameters, metrics, and artifacts
-c) Tracking team members
-d) Monitoring servers
+---
+
+### Question 19
+Which model serving protocol is typically faster for high-throughput scenarios?
+
+A) REST API
+B) gRPC
+C) GraphQL
+D) WebSockets
 
 **Answer:** B
 
 ---
 
-### Q7. Which tool is commonly used for experiment tracking?
+## Section 6: A/B Testing (Lesson 07)
 
-a) Git only
-b) MLflow, Weights & Biases
-c) Excel
-d) Notepad
+### Question 20
+What is the purpose of calculating sample size before running an A/B test?
 
-**Answer:** B
+A) To determine how long the test needs to run
+B) To ensure statistical power to detect the minimum effect
+C) To avoid running tests longer than necessary
+D) All of the above
 
----
-
-### Q8. What should you log during model training?
-
-a) Nothing
-b) Hyperparameters, metrics, model artifacts, code version
-c) Only final accuracy
-d) Team members
-
-**Answer:** B
+**Answer:** D
 
 ---
 
-### Q9. What is hyperparameter tuning?
+### Question 21
+What is "Sample Ratio Mismatch" (SRM) and why is it concerning?
 
-a) Tuning hardware
-b) Searching for optimal model configuration values
-c) Adjusting data
-d) Code optimization
+A) When the observed traffic split doesn't match the expected ratio
+B) It can indicate bugs in assignment logic or data collection
+C) It can invalidate experiment results
+D) All of the above
 
-**Answer:** B
-
----
-
-### Q10. What is the purpose of a model registry?
-
-a) Legal registration
-b) Centralized store for model versions and metadata
-c) Model training
-d) Data storage
-
-**Answer:** B
+**Answer:** D
 
 ---
 
-### Q11. Why version ML models?
+### Question 22 (True/False)
+In A/B testing, you should always wait until reaching statistical significance before making a deployment decision.
 
-a) Not necessary
-b) Track changes, enable rollback, reproduce results
-c) Waste storage
-d) Slow down deployment
-
-**Answer:** B
+**Answer:** False (Sequential testing approaches allow for early stopping when significance is reached before planned duration, and you should also consider guardrail metrics and practical significance, not just statistical significance)
 
 ---
 
-## Section 3: CI/CD for ML (7 questions)
+### Question 23
+What is a guardrail metric in A/B testing?
 
-### Q12. What is CI/CD?
+A) A metric that must not degrade beyond a threshold
+B) A primary success metric
+C) A metric used to calculate sample size
+D) A metric for traffic allocation
 
-a) Container Integration/Deployment
-b) Continuous Integration/Continuous Deployment
-c) Cloud Infrastructure/Development
-d) Code Integration/Debugging
-
-**Answer:** B
-
----
-
-### Q13. How does CI/CD for ML differ from software CI/CD?
-
-a) No difference
-b) Adds data validation, model testing, performance checks
-c) It's simpler
-d) No testing needed
-
-**Answer:** B
+**Answer:** A
 
 ---
 
-### Q14. What should be tested in ML CI/CD pipelines?
+## Section 7: Best Practices & Governance (Lesson 08)
 
-a) Nothing
-b) Code, data, model quality, infrastructure
-c) Only unit tests
-d) Only integration tests
+### Question 24
+What is the purpose of a Model Card?
 
-**Answer:** B
+A) To document model details, intended use, and limitations
+B) To track model performance over time
+C) To deploy models to production
+D) To version control models
 
----
-
-### Q15. What is a model validation step in CI/CD?
-
-a) Legal validation
-b) Checking model meets quality thresholds before deployment
-c) Syntax checking
-d) User acceptance
-
-**Answer:** B
+**Answer:** A
 
 ---
 
-### Q16. What is canary deployment?
+### Question 25 (Short Answer)
+Name three types of ML-specific technical debt and provide a brief example of each.
 
-a) Deploying to all users at once
-b) Gradual rollout to subset of users first
-c) Rolling back deployment
-d) Testing in development only
+**Answer (Examples):**
 
-**Answer:** B
-
----
-
-### Q17. What is A/B testing in ML deployment?
-
-a) Testing two code versions
-b) Comparing two model versions with live traffic
-c) Alphabet testing
-d) Testing on development only
-
-**Answer:** B
+1. **Data Debt**: Dependency on multiple unstable data sources, lack of data versioning, no automated data validation
+2. **Model Debt**: Multiple redundant models solving similar problems, complex model ensembles that are hard to maintain, undocumented model assumptions
+3. **Monitoring Debt**: No drift detection, lack of model performance tracking in production, missing alerting on degraded performance
 
 ---
 
-### Q18. What is shadow mode deployment?
+## Answer Key Summary
 
-a) Deploying at night
-b) New model runs in parallel, predictions not served
-c) Deleting old model
-d) Testing on local machine
+| Question | Answer | Points |
+|----------|--------|--------|
+| 1 | B | 1 |
+| 2 | C | 1 |
+| 3 | False | 1 |
+| 4 | B | 1 |
+| 5 | E | 1 |
+| 6 | A | 1 |
+| 7 | Short answer | 2 |
+| 8 | D | 1 |
+| 9 | D | 1 |
+| 10 | True | 1 |
+| 11 | B | 1 |
+| 12 | D | 1 |
+| 13 | E | 1 |
+| 14 | D | 1 |
+| 15 | Short answer | 2 |
+| 16 | B | 1 |
+| 17 | B | 1 |
+| 18 | True | 1 |
+| 19 | B | 1 |
+| 20 | D | 1 |
+| 21 | D | 1 |
+| 22 | False | 1 |
+| 23 | A | 1 |
+| 24 | A | 1 |
+| 25 | Short answer | 3 |
 
-**Answer:** B
-
----
-
-## Section 4: Model Monitoring (6 questions)
-
-### Q19. What is model drift?
-
-a) Model files moving
-b) Model performance degrading over time
-c) Network latency
-d) Storage issues
-
-**Answer:** B
-
----
-
-### Q20. What are the two types of model drift?
-
-a) Fast and slow
-b) Data drift and concept drift
-c) Good and bad
-d) Training and inference
-
-**Answer:** B
-
----
-
-### Q21. What metrics should you monitor in production?
-
-a) Nothing
-b) Accuracy, latency, throughput, error rate, drift
-c) Only accuracy
-d) Only latency
-
-**Answer:** B
+**Total Points: 28**
+**Passing Score: 23/28 (82%)**
 
 ---
 
-### Q22. What is data drift?
+## Grading Rubric for Short Answer Questions
 
-a) Data corruption
-b) Input data distribution changing over time
-c) Slow data transfer
-d) Missing data
+### Question 7 (2 points)
+- **2 points:** Clearly distinguishes parameters as inputs and metrics as outputs, mentions timing/frequency of logging
+- **1 point:** Partially correct but missing key details
+- **0 points:** Incorrect or missing
 
-**Answer:** B
+### Question 15 (2 points)
+- **2 points:** Explains gradual traffic routing and monitoring benefits
+- **1 point:** Mentions canary concept but lacks detail on benefits
+- **0 points:** Incorrect or missing
 
----
-
-### Q23. What is concept drift?
-
-a) Forgetting concepts
-b) Relationship between features and target changing
-c) Conceptual errors
-d) Documentation drift
-
-**Answer:** B
+### Question 25 (3 points)
+- **3 points:** Provides 3 distinct types with relevant examples
+- **2 points:** Provides 2 types with examples
+- **1 point:** Provides 1 type with example
+- **0 points:** No correct examples
 
 ---
 
-### Q24. How often should you retrain models in production?
+## Study Tips
 
-a) Never
-b) Depends on drift detection and business requirements
-c) Every hour
-d) Only when system crashes
+Focus your review on these key areas:
+- MLOps lifecycle components
+- Experiment tracking best practices
+- Feature store architecture and use cases
+- CI/CD pipeline stages for ML
+- Model deployment patterns
+- A/B testing statistical concepts
+- Model governance and documentation
+- Technical debt identification
 
-**Answer:** B
-
----
-
-## Section 5: MLOps Tools and Practices (6 questions)
-
-### Q25. What is MLflow?
-
-a) Water flow model
-b) Open-source MLOps platform
-c) Cloud provider
-d) Container orchestrator
-
-**Answer:** B
-
----
-
-### Q26. What is Kubeflow?
-
-a) Water flow in Kubernetes
-b) ML platform built on Kubernetes
-c) Kubernetes alternative
-d) Monitoring tool
-
-**Answer:** B
-
----
-
-### Q27. What is DVC (Data Version Control)?
-
-a) Data validation check
-b) Git-like version control for data and models
-c) Data visualization tool
-d) Database
-
-**Answer:** B
-
----
-
-### Q28. What is feature store used for in MLOps?
-
-a) Storing model code
-b) Centralized feature management and serving
-c) Storing logs
-d) Infrastructure storage
-
-**Answer:** B
-
----
-
-### Q29. What is the purpose of model serving infrastructure?
-
-a) Model storage
-b) Expose model for predictions at scale
-c) Model training
-d) Data collection
-
-**Answer:** B
-
----
-
-### Q30. What is the best practice for model deployment?
-
-a) Deploy directly to production
-b) Test in staging, gradual rollout, monitoring
-c) Never deploy
-d) Deploy without testing
-
-**Answer:** B
-
----
-
-## Answer Key
-
-1. A   2. B   3. B   4. B   5. B
-6. B   7. B   8. B   9. B   10. B
-11. B  12. B  13. B  14. B  15. B
-16. B  17. B  18. B  19. B  20. B
-21. B  22. B  23. B  24. B  25. B
-26. B  27. B  28. B  29. B  30. B
-
----
-
-## Scoring
-
-- **27-30 correct (90-100%)**: Excellent! MLOps expert
-- **24-26 correct (80-89%)**: Good! Production-ready
-- **21-23 correct (70-79%)**: Fair. Review practices
-- **Below 21 (< 70%)**: Review module materials
-
----
-
-**Next Module:** Module 07 - GPU Computing
+Good luck!

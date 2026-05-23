@@ -44,7 +44,7 @@ This curriculum is designed to take you from foundational knowledge to productio
 - **Learning Hours**: 500+ hours
 - **Modules**: 10 complete modules
 - **Projects**: 3 progressive projects
-- **Status**: ✅ 100% Complete
+- **Status**: 🚧 In active development — see [progress notes](#progress-notes) below for the current per-module exercise/lab completion
 
 ### What Makes This Curriculum Unique
 
@@ -2040,6 +2040,46 @@ This curriculum was developed based on:
 
 ---
 
-*Last Updated: 2025-01-15*
-*Curriculum Version: 1.0*
-*Status: ✅ Complete*
+## Progress Notes
+
+The earlier "✅ 100% Complete" claim was inaccurate. As of 2026-05-22 the curriculum is in active development with the following honest accounting against the "Materials Included" promises:
+
+### Per-module exercise / lab status (post 2026-05-22 lab drop)
+
+| Module | Exercises promised | Present | Labs promised | Labs present |
+|---|---|---|---|---|
+| 101 Foundations | 10 | 6 | 5 | **5 ✅** |
+| 102 Cloud | 8 | 3 | 4 | **4 ✅** |
+| 103 Containerization | 12 | 6 | 6 | **6 ✅** |
+| 104 Kubernetes | 15 | 3 | 8 | **8 ✅** |
+| 105 Data Pipelines | 12 | 2 | 6 | **6 ✅** |
+| 106 MLOps | 14 | 3 | 7 | **7 ✅** |
+| 107 GPU | 11 | 3 | 6 | **6 ✅** |
+| 108 Monitoring | 10 | 2 | 5 | **5 ✅** |
+| 109 IaC | 13 | 2 | 7 | **7 ✅** |
+| 110 LLM | 14 | 2 | 8 | **8 ✅** |
+
+**Status update:** All 62 promised labs were authored on 2026-05-22 as substantive hands-on walkthroughs (objective, prerequisites, numbered steps, validation checklist, cleanup, troubleshooting). They live in `lessons/mod-XXX-*/labs/`.
+
+The exercise gap remains (32 of 119 present). It is being addressed in a separate content drop because each exercise targets the same 25–50 KB depth as the existing ones — substantial authoring work that warrants its own focused effort.
+
+### Projects status
+
+All three projects (101, 102, 103) are complete and runnable. They are the most polished part of the curriculum.
+
+### What you can do today
+
+Even with the exercise/lab gap, the curriculum is usable end-to-end as a self-study path:
+
+- Read each module's lectures (always complete).
+- Work the exercises that are present (they're substantial — 25–50 KB each).
+- Take the per-module quiz.
+- Build all three projects.
+
+The remaining exercises and labs are nice-to-have for completeness, not blocking for the core learning outcomes.
+
+---
+
+*Last Updated: 2026-05-22*
+*Curriculum Version: 1.1.0*
+*Status: 🚧 In active development*
