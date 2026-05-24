@@ -238,4 +238,5 @@ docker compose down -v
 
 ---
 
-**Next Exercise:** [exercise-03-production-ready.md](./exercise-03-production-ready.md)
+**Next Exercise:** [exercise-03-gpu-container.md](./exercise-03-gpu-container.md) (GPU-enabled containers for ML workloads)
+**Related Exercises:** [exercise-04-container-security/](./exercise-04-container-security/) and [exercise-08-production-model-serving](../../mod-101-foundations/exercises/exercise-08-production-model-serving/) for production-readiness depth

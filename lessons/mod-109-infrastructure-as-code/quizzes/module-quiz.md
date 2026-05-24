@@ -859,4 +859,4 @@ How should you securely manage these secrets in your Terraform configuration?
 
 **Congratulations on completing the Module 09 quiz!**
 
-Return to [Module README](README.md) for additional resources and next steps.
+Return to [Module README](../README.md) for additional resources and next steps.

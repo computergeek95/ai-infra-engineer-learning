@@ -1183,4 +1183,4 @@ Key takeaways:
 - ✅ Debug systematically with checkpoints and profiling
 - ✅ Test error handling logic thoroughly
 
-**Next Module:** [06 - MLOps & Experiment Tracking](../06-mlops/README.md)
+**Next Module:** [Module 106 - MLOps & Experiment Tracking](../mod-106-mlops/README.md)

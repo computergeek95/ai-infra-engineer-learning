@@ -153,6 +153,6 @@ community/
 - [Join Discussions](https://github.com/ai-infra-curriculum/ai-infra-engineer-learning/discussions)
 - [Report an Issue](https://github.com/ai-infra-curriculum/ai-infra-engineer-learning/issues/new)
 - [Contribute](./CONTRIBUTING.md)
-- [Code of Conduct](./CODE_OF_CONDUCT.md)
+- [Code of Conduct](../CODE_OF_CONDUCT.md)
 
 **Happy Learning!** 🎓

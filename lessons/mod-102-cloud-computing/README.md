@@ -237,6 +237,6 @@ After completing this module:
 
 **Ready to start?** Begin with [Lesson 01: Cloud Architecture for ML](./01-cloud-architecture.md)
 
-**Need help?** Review [Module 01](../01-foundations/) if cloud concepts are unclear.
+**Need help?** Review [Module 101: Foundations](../mod-101-foundations/) if cloud concepts are unclear.
 
 **Cost concerns?** All lessons can be completed within free tier limits!

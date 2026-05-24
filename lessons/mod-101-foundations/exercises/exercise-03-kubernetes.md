@@ -841,4 +841,4 @@ Create a ZIP file with:
 
 ---
 
-**Next Steps:** Complete [Project 01](../../projects/project-101-basic-model-serving/) to build a complete ML serving system!
+**Next Steps:** Complete [Project 101](../../../projects/project-101-basic-model-serving/) to build a complete ML serving system!

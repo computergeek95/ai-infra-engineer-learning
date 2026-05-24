@@ -508,7 +508,7 @@ az account show
 
 ### Getting Help
 
-1. **Check the FAQ**: [resources/faq.md](../resources/faq.md)
+1. **Check the FAQ**: [resources/faq.md](./resources/faq.md)
 2. **Search Issues**: [GitHub Issues](https://github.com/ai-infra-curriculum/ai-infra-engineer-learning/issues)
 3. **Ask in Discussions**: [GitHub Discussions](https://github.com/ai-infra-curriculum/ai-infra-engineer-learning/discussions)
 4. **Create an Issue**: For bugs or unclear instructions

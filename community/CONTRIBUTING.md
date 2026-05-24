@@ -202,9 +202,11 @@ Contributors will be:
 
 ### Content Templates
 
-- [Exercise Template](../templates/exercise-template.md)
-- [Project Template](../templates/project-template.md)
-- [Documentation Template](../templates/docs-template.md)
+Content templates (exercise, project, documentation) are planned. For now, model new contributions on an existing high-quality example:
+
+- New exercise: copy the structure of `lessons/mod-101-foundations/exercises/exercise-01-environment-setup.md`
+- New project: model on `projects/project-101-basic-model-serving/README.md`
+- New lecture note: model on any file under `lessons/mod-1*-*/lecture-notes/`
 
 ### Style Guides
 

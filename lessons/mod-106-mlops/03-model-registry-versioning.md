@@ -779,4 +779,4 @@ Key takeaways:
 - ✅ Model lineage enables reproducibility
 - ✅ Integration with deployment automates releases
 
-**Next Lesson:** [04 - Feature Stores](./04-feature-stores.md)
+**Next Lesson:** [04 - Feature Stores Engineering](./04-feature-stores-engineering.md)

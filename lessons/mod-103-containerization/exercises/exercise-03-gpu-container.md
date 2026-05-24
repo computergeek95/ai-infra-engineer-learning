@@ -280,4 +280,4 @@ torch.cuda.empty_cache()
 
 **Congratulations!** You've completed the Docker containerization exercises.
 
-**Next Module:** [Module 04: Kubernetes Fundamentals](../../04-kubernetes/)
+**Next Module:** [Module 104: Kubernetes](../../mod-104-kubernetes/)

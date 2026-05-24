@@ -327,4 +327,5 @@ Create a GitHub repository with:
 
 ---
 
-**Next Exercise:** [exercise-02-optimization.md](./exercise-02-optimization.md)
+**Next Exercise:** [exercise-02-multi-container.md](./exercise-02-multi-container.md) (multi-container Docker Compose stacks)
+**Related Lab:** [lab-01-dockerfile-optimization.md](../labs/lab-01-dockerfile-optimization.md) (deeper Dockerfile optimization techniques)
