@@ -185,4 +185,4 @@ A passing exercise satisfies all of:
 
 ## Solutions
 
-A reference implementation lives under `exercises/solutions/exercise-07/` in the engineer-solutions repo. **Do this exercise yourself first** — the muscle memory of writing the IAM policy correctly is the actual lesson.
+A reference implementation lives at [`ai-infra-engineer-solutions/modules/mod-101-foundations/exercise-07-cloud-onboarding/`](https://github.com/ai-infra-curriculum/ai-infra-engineer-solutions/tree/main/modules/mod-101-foundations/exercise-07-cloud-onboarding). **Do this exercise yourself first** — the muscle memory of writing the IAM policy correctly is the actual lesson.

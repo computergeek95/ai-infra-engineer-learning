@@ -44,6 +44,10 @@ This repository contains a **complete, production-ready learning path** for beco
 
 ## ✨ What's New
 
+**2026-05-27 — Layout standardisation:**
+- 🧹 **Removed 10 empty root-level `mod-XXX-*/` placeholder directories.** They were vestiges from a pre-refactor layout; all canonical module content has lived under `lessons/mod-XXX-*/` for some time. The repo now matches the layout expected by the curriculum-runner audit (`lessons/` for learning content, `modules/` in the paired solutions repo).
+- 🧹 **Removed orphan `lessons/mod-101-foundations/exercises/solutions/`** (a duplicate single-file index). Reference solutions live in the paired [`ai-infra-engineer-solutions`](https://github.com/ai-infra-curriculum/ai-infra-engineer-solutions) repo; inline pointers throughout the lessons now link there directly.
+
 **May 2026 Update:**
 - 🧪 **All 62 promised labs authored** across all 10 modules (foundations → LLM infrastructure). Each lab is a substantive, runnable walkthrough with objectives, prerequisites, numbered steps, validation checklist, cleanup, and troubleshooting.
 - 📒 **Two new reading lists:** `advanced-engineer-path.md` and `staff-engineer-path.md` (9–18 months and 2–5 years respectively).

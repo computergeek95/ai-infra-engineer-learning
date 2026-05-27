@@ -329,6 +329,6 @@ For more practice, try these activities:
 
 ## Answer Key Location
 
-Full answer key with explanations available at: `exercises/solutions/quiz_answers.md`
+Full answer keys live alongside each module's quiz in this repo (`module-quiz-answers.md` where present). Worked examples for the practical questions are in the paired [`ai-infra-engineer-solutions`](https://github.com/ai-infra-curriculum/ai-infra-engineer-solutions/tree/main/modules/mod-105-data-pipelines) repo.
 
 **Note:** For short answer questions, answers may vary. The sample answers provided are examples of acceptable responses. Focus on demonstrating understanding of core concepts rather than exact wording.

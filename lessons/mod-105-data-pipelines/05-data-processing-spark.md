@@ -996,7 +996,7 @@ from pyspark.sql import functions as F
 # TODO: Write output
 ```
 
-**Solution available in:** `exercises/solutions/spark_feature_pipeline.py`
+**Solution available in:** [`ai-infra-engineer-solutions/modules/mod-105-data-pipelines/exercise-05-spark-batch-processing/`](https://github.com/ai-infra-curriculum/ai-infra-engineer-solutions/tree/main/modules/mod-105-data-pipelines/exercise-05-spark-batch-processing)
 
 ---
 

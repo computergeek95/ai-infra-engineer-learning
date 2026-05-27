@@ -991,7 +991,7 @@ consumer = KafkaConsumer(
 - Emit alerts to separate topic
 - Monitor consumer lag
 
-**Starter code available in:** `exercises/solutions/kafka_fraud_detection.py`
+**Starter code available in:** [`ai-infra-engineer-solutions/modules/mod-105-data-pipelines/exercise-03-streaming-pipeline-kafka/`](https://github.com/ai-infra-curriculum/ai-infra-engineer-solutions/tree/main/modules/mod-105-data-pipelines/exercise-03-streaming-pipeline-kafka)
 
 ---
 
